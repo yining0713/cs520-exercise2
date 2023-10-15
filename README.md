@@ -3,7 +3,7 @@ Template code for the In-Class Exercise 2 on Unit Testing, an exercise that focu
 test effectiveness, using code coverage and mutation analysis.
 
 # Installation
-1. Run ```pip install -r requirements.txt.```
+1. Run ```pip3 install -r requirements.txt.```
 2. Test the setup by running 
   ```
    cd test_suit
