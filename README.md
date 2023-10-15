@@ -12,7 +12,7 @@ test effectiveness, using code coverage and mutation analysis.
 
 
 # Control Flow Diagram
-We will use the ```py2cfg``` package to generate control flow diagram from the file ```isTriangle.py```. Note: Windows users may find that py2cfg has a specific dependency that only works in Unix system. In that case, please execute it in a UNIX virtual machine.
+We will use the ```py2cfg``` package (https://pypi.org/project/py2cfg/) to generate control flow diagram from the file ```isTriangle.py```. Note: Windows users may find that py2cfg has a specific dependency that only works in Unix system. In that case, please execute it in a UNIX virtual machine.
 
 1. Use the following command to install the py2cfg library: ```pip3 install py2cfg --user```
 2. Install graphviz for visualizing the generated CFG. In Ubuntu, you can use the following command:
