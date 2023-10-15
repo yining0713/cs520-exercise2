@@ -19,7 +19,8 @@ We will use the ```py2cfg``` package (https://pypi.org/project/py2cfg/) to gener
 ```sudo apt install graphviz```. 
 Link to the Graphviz download: https://graphviz.org/download/
 3. If you have installed it, then the default command is:
-```py2cfg isTriangle.py```. You should find a generated SVG file in the same directory. 
+```py2cfg isTriangle.py```. You should find a generated SVG file in the same directory.
+4. In a web brower, open the generated SVG file to visualize the CFG.
 
 
 # Testing
