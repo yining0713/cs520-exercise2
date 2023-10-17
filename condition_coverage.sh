@@ -3,4 +3,4 @@
 cd "./test_suit"
 coverage run --branch test_conditionCoverage.py
 coverage report -m --include="test_conditionCoverage.py"
-coverage html --skip-covered
+coverage html -d coverage_html

@@ -3,4 +3,4 @@
 cd "./test_suit"
 coverage run -m pytest test_statementCoverage.py
 coverage report -m --include="test_statementCoverage.py"
-coverage html 
+coverage html -d statement_html
