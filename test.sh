@@ -14,5 +14,5 @@ coverage report -m --include="test_triangle.py"
 coverage html -d initial_coverage_html
 
 
-python.exe mut.py --target isTriangle --unit-test test_triangle -m 
-python.exe mut.py --target isTriangle --unit-test test_triangle -m --report-html initial_mutation_report.html 
+python3 mut.py --target isTriangle --unit-test test_triangle -m 
+python3 mut.py --target isTriangle --unit-test test_triangle -m --report-html initial_mutation_report.html 
