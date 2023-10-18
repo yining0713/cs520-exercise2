@@ -13,6 +13,8 @@ NOTE) In the following, we will be using the python 3 commands. You may instead 
    ```
 For more information on ```Pytest```, you can take a look at the homepage https://pypi.org/project/pytest/. 
 
+Here are more details about unittest: https://docs.python.org/3/library/unittest.html.
+
 
 # Control Flow Graph
 
