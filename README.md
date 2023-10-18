@@ -39,20 +39,19 @@ You will need to create three test suites and place the files in test_suit folde
 3. The statement coverage should be approximately **95%** and above. 
 
 
-## Condition Coverage
+## Decision Coverage
 
-1. You need to create a test suite namely ```test_conditionCoverage.py```
-2. Run the following script to generate branch coverage report: ```./condition_coverage.sh```
-3. The condition coverage should be approximately **95%** and above. 
+1. You need to create a test suite namely ```test_decisionCoverage.py```
+2. Run the following script to generate branch coverage report: ```./decision_coverage.sh```
+3. The decision coverage should be approximately **95%** and above. 
 
 ### Coverage Tool
 
 - We will be using the ```Coverage``` tool to analyze statement
 coverage and condition coverage. 
 - Run the Coverage code analysis scripts (statement_coverage.sh),
-(condition_coverage.sh) and inspect the report it produces
-```(test suit/htmlcov/index.html)```. 
-- You will find the ```index.html``` inside the generated folders ```coverage_html``` and ```statement_html``` respectively in ```'./test_suit``` directory. 
+  (decision_coverage.sh) and inspect the report it produces. 
+- You will find the ```index.html``` inside the generated folders ```statement_html``` and ```decision_html``` respectively in ```'./test_suit``` directory. 
 - USEFUL RESOURCES: To get more idea on how to read a Coverage report:
 https://coverage.readthedocs.io/en/7.2.7/
 
