@@ -11,6 +11,8 @@ NOTE) In the following, we will be using the python 3 commands. You may instead 
    cd test_suit
    python3 -m test_isTriangle
    ```
+3. Test the initial test suite by running the script: ```test.sh```
+
 For more information on ```Pytest```, you can take a look at the homepage https://pypi.org/project/pytest/. 
 
 Here are more details about ```unittest```: https://docs.python.org/3/library/unittest.html.
