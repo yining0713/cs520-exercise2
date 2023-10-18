@@ -2,27 +2,28 @@
 Template code for the In-Class Exercise 2 on Unit Testing, an exercise that focuses on unit testing and
 test effectiveness, using code coverage and mutation analysis.
 
+NOTE) In the following, we will be using the python 3 commands. You may instead need to use the python commands.
+
 # Installation
 1. Run ```pip3 install -r requirements.txt.```
 2. Test the setup by running 
   ```
    cd test_suit
-   python -m test_isTriangle
+   python3 -m test_isTriangle
    ```
 For more information on ```Pytest```, you can take a look at the homepage https://pypi.org/project/pytest/. 
 
 
+# Control Flow Graph
 
-# Control Flow Diagram
+![Control Flow Graph](isTriangle_cfg_numbered.png)
 
-![Control Flow Diagram](isTriangle_cfg_numbered.png)
-
-Control flow diagram helps to assess normative and exception cases from the execution flow. You are given the control flow diagram of the file ```isTriangle.py```. One example normative case is identified for you in the provided image: ```scalene_triangle```.  For a scalene triangle, the execution flow starts at the "classify" function, evaluates the invalid and equality conditions, and then reaches the trian == 0 condition, where the triangle is classified as scalene.
+Control flow graph (CFG) helps to assess normative and exception cases from the execution flow. You are given the CFG of the file ```isTriangle.py```. One example normative case is identified for you in the provided image: ```scalene_triangle```.  For a scalene triangle, the execution flow starts at the "classify" function, evaluates the invalid and equality conditions, and then reaches the trian == 0 condition, where the triangle is classified as scalene.
 
 You need to identify the following cases in a similar way:
 
-1. Find the execution flow for normative cases from the CFG file: equilateral triangle, and isosceles triangle
-2. Find the execution flow for exception cases from the CFG file: invalid sides and violates triangle inequality
+1. Find the execution flow for two (2) other normative cases from the CFG file: equilateral triangle, and isosceles triangle
+2. Find the execution flow for two (2) exceptional cases from the CFG file: invalid sides and violates triangle inequality
 
 
 # Testing & Analysis
@@ -76,8 +77,8 @@ If you encounter an error with ```if self.isAlive():``` from mutpy, do the follo
 
 
 
-# Generating Control flow diagram (OPTIONAL Reading)
-If you are interested to generate the control flow diagram we have used in this exercise yourself, you can follow these instructions. We have used the ```py2cfg``` package (https://pypi.org/project/py2cfg/) to generate control flow diagram from the file ```isTriangle.py```. Note: Windows users may find that py2cfg has a specific dependency that only works in Unix system. In that case, please execute it in a UNIX virtual machine.
+# Generating Control flow graph (OPTIONAL Reading)
+If you are interested to generate the control flow graph we have used in this exercise yourself, you can follow these instructions. We have used the ```py2cfg``` package (https://pypi.org/project/py2cfg/) to generate control flow graph from the file ```isTriangle.py```. Note: Windows users may find that py2cfg has a specific dependency that only works in Unix system. In that case, please execute it in a UNIX virtual machine.
 
 1. Use the following command to install the py2cfg library: ```pip3 install py2cfg --user```
 2. Install graphviz for visualizing the generated CFG. In Ubuntu, you can use the following command:
