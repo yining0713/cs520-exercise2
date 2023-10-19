@@ -5,6 +5,8 @@ test effectiveness, using code coverage and mutation analysis.
 NOTE) In the following, we will be using the python 3 commands. You may instead need to use the python commands.
 
 # Installation
+We advise you to create a virtual enviroment (python venv, conda) to install the packages.
+
 1. Run ```pip3 install -r requirements.txt.```
 2. Test the setup by running 
   ```
