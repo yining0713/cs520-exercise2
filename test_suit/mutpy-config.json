@@ -1,0 +1,6 @@
+{
+    "target": "triangle.py",
+    "mutation_filter": ["M1*", "M2*"],
+    "runner": "unittest",
+    "output": "mutpy-results"
+}
