@@ -37,7 +37,7 @@ class DecisionCoverageTest(unittest.TestCase):
 
     def test7(self): # line 36: true 96%
         actual = Triangle.classify(8, 5, 4)
-        expected = Triangle.Type.ISOSCELES
+        expected = Triangle.Type.SCALENE
         self.assertEqual(actual, expected)
     
     def test8(self): # line 46 false: 100%
