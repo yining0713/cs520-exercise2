@@ -1,0 +1,1472 @@
+[*] Start mutation process:
+   - targets: isTriangle
+   - tests: test_triangle
+[*] 1 tests passed:
+   - test_triangle [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a - b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   2] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a - c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   3] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b - c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   4] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a - b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   5] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a - c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   6] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b - c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   7] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  23:         
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+- 27:             trian += 1
++ 27:             trian -= 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   8] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+- 29:             trian += 2
++ 29:             trian -= 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#   9] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+- 31:             trian += 3
++ 31:             trian -= 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  10] COI isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if not ((a <= 0 or b <= 0 or c <= 0)):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  11] COI isTriangle: 
+--------------------------------------------------------------------------------
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+- 26:         if a == b:
++ 26:         if not (a == b):
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  12] COI isTriangle: 
+--------------------------------------------------------------------------------
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+- 28:         if a == c:
++ 28:         if not (a == c):
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  13] COI isTriangle: 
+--------------------------------------------------------------------------------
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+- 30:         if b == c:
++ 30:         if not (b == c):
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+--------------------------------------------------------------------------------
+[0.00800 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  14] COI isTriangle: 
+--------------------------------------------------------------------------------
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+- 33:         if trian == 0:
++ 33:         if not (trian == 0):
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  15] COI isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if not ((a + b <= c or a + c <= b or b + c <= a)):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  16] COI isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if not (trian > 3):
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  17] COI isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if not ((trian == 1 and a + b > c)):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  18] COI isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif not ((trian == 2 and a + c > b)):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  19] COI isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif not ((trian == 3 and b + c > a)):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  20] DDL isTriangle: 
+--------------------------------------------------------------------------------
+  12:         EQUILATERAL = 2
+  13:         ISOSCELES = 3
+  14:     
+  15:     
+- 16:     @staticmethod
+- 17:     def classify(a, b, c):'''
++ 16:     def classify(a, b, c):
++ 17:         '''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+  21:         if (a <= 0 or b <= 0 or c <= 0):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  21] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 and b <= 0 and c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  22] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c and a + c <= b and b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  23] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 or a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  24] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 or a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  25] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 or b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  26] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a >= 0 or b <= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  27] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a < 0 or b <= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  28] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b >= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00017 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  29] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b < 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  30] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b <= 0 or c >= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00800 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  31] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b <= 0 or c < 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  32] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+- 26:         if a == b:
++ 26:         if a != b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  33] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+- 28:         if a == c:
++ 28:         if a != c:
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  34] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+- 30:         if b == c:
++ 30:         if b != c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+--------------------------------------------------------------------------------
+[0.00800 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  35] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+- 33:         if trian == 0:
++ 33:         if trian != 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  36] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b >= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  37] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b < c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  38] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c >= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  39] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c < b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  40] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b + c >= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  41] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b + c < a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  42] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if trian < 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  43] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if trian >= 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  44] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian != 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  45] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a + b < c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  46] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a + b >= c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00800 s] survived
+   - [#  47] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian != 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  48] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a + c < b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  49] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a + c >= b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  50] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian != 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00800 s] survived
+   - [#  51] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b + c < a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  52] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b + c >= a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+[*] Mutation score [0.88039 s]: 23.1%
+   - all: 52
+   - killed: 12 (23.1%)
+   - survived: 40 (76.9%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
+[*] Start mutation process:
+   - targets: isTriangle
+   - tests: test_triangle
+[*] 1 tests passed:
+   - test_triangle [0.00000 s]
+[*] Start mutants generation and execution:
+   - [#   1] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a - b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   2] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a - c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   3] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b - c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   4] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a - b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   5] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a - c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   6] AOR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b - c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   7] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  23:         
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+- 27:             trian += 1
++ 27:             trian -= 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#   8] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+- 29:             trian += 2
++ 29:             trian -= 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#   9] ASR isTriangle: 
+--------------------------------------------------------------------------------
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+- 31:             trian += 3
++ 31:             trian -= 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  10] COI isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if not ((a <= 0 or b <= 0 or c <= 0)):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  11] COI isTriangle: 
+--------------------------------------------------------------------------------
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+- 26:         if a == b:
++ 26:         if not (a == b):
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  12] COI isTriangle: 
+--------------------------------------------------------------------------------
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+- 28:         if a == c:
++ 28:         if not (a == c):
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  13] COI isTriangle: 
+--------------------------------------------------------------------------------
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+- 30:         if b == c:
++ 30:         if not (b == c):
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  14] COI isTriangle: 
+--------------------------------------------------------------------------------
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+- 33:         if trian == 0:
++ 33:         if not (trian == 0):
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+--------------------------------------------------------------------------------
+[0.00800 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  15] COI isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if not ((a + b <= c or a + c <= b or b + c <= a)):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  16] COI isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if not (trian > 3):
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  17] COI isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if not ((trian == 1 and a + b > c)):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  18] COI isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif not ((trian == 2 and a + c > b)):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  19] COI isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif not ((trian == 3 and b + c > a)):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00401 s] survived
+   - [#  20] DDL isTriangle: 
+--------------------------------------------------------------------------------
+  12:         EQUILATERAL = 2
+  13:         ISOSCELES = 3
+  14:     
+  15:     
+- 16:     @staticmethod
+- 17:     def classify(a, b, c):'''
++ 16:     def classify(a, b, c):
++ 17:         '''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+  21:         if (a <= 0 or b <= 0 or c <= 0):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  21] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 and b <= 0 and c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  22] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c and a + c <= b and b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  23] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 or a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  24] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 or a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  25] LCR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 or b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  26] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a >= 0 or b <= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00401 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  27] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a < 0 or b <= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  28] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b >= 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  29] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b < 0 or c <= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  30] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b <= 0 or c >= 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  31] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  17:     def classify(a, b, c):'''
+  18:         This static method does the actual classification of a triangle, given the lengths
+  19:         of its three sides.
+  20:         '''
+- 21:         if (a <= 0 or b <= 0 or c <= 0):
++ 21:         if (a <= 0 or b <= 0 or c < 0):
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  32] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  22:             return Triangle.Type.INVALID
+  23:         
+  24:         trian = 0
+  25:         
+- 26:         if a == b:
++ 26:         if a != b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+  30:         if b == c:
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  33] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  24:         trian = 0
+  25:         
+  26:         if a == b:
+  27:             trian += 1
+- 28:         if a == c:
++ 28:         if a != c:
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  34] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  26:         if a == b:
+  27:             trian += 1
+  28:         if a == c:
+  29:             trian += 2
+- 30:         if b == c:
++ 30:         if b != c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  35] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  29:             trian += 2
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+- 33:         if trian == 0:
++ 33:         if trian != 0:
+  34:             if (a + b <= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  36] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b >= c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  37] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b < c or a + c <= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  38] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c >= b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  39] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c < b or b + c <= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  40] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b + c >= a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  41] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  30:         if b == c:
+  31:             trian += 3
+  32:         
+  33:         if trian == 0:
+- 34:             if (a + b <= c or a + c <= b or b + c <= a):
++ 34:             if (a + b <= c or a + c <= b or b + c < a):
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  42] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if trian < 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00000 s] killed by test1 (test_triangle.TriangleTest.test1)
+   - [#  43] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  35:                 return Triangle.Type.INVALID
+  36:             else:
+  37:                 return Triangle.Type.SCALENE
+  38:         
+- 39:         if trian > 3:
++ 39:         if trian >= 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+--------------------------------------------------------------------------------
+[0.00802 s] survived
+   - [#  44] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian != 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  45] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a + b < c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  46] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  38:         
+  39:         if trian > 3:
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+- 42:         if (trian == 1 and a + b > c):
++ 42:         if (trian == 1 and a + b >= c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  47] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian != 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  48] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a + c < b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  49] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  40:             return Triangle.Type.EQUILATERAL
+  41:         
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+- 44:         elif (trian == 2 and a + c > b):
++ 44:         elif (trian == 2 and a + c >= b):
+  45:             return Triangle.Type.ISOSCELES
+  46:         elif (trian == 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  50] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian != 3 and b + c > a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  51] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b + c < a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+   - [#  52] ROR isTriangle: 
+--------------------------------------------------------------------------------
+  42:         if (trian == 1 and a + b > c):
+  43:             return Triangle.Type.ISOSCELES
+  44:         elif (trian == 2 and a + c > b):
+  45:             return Triangle.Type.ISOSCELES
+- 46:         elif (trian == 3 and b + c > a):
++ 46:         elif (trian == 3 and b + c >= a):
+  47:             return Triangle.Type.ISOSCELES
+  48:         
+  49:         return Triangle.Type.INVALID
+--------------------------------------------------------------------------------
+[0.00000 s] survived
+[*] Mutation score [1.16153 s]: 23.1%
+   - all: 52
+   - killed: 12 (23.1%)
+   - survived: 40 (76.9%)
+   - incompetent: 0 (0.0%)
+   - timeout: 0 (0.0%)
