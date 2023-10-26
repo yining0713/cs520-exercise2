@@ -22,12 +22,12 @@ class DecisionCoverageTest(unittest.TestCase):
     
     def test4(self): # line 28: true 76%
         actual = Triangle.classify(8, 10, 8)
-        expected = Triangle.Type.SCALENE
+        expected = Triangle.Type.ISOSCELES
         self.assertEqual(actual, expected)
 
     def test5(self): # line 30: true 84%
         actual = Triangle.classify(10, 8, 8)
-        expected = Triangle.Type.INVALID
+        expected = Triangle.Type.ISOSCELES
         self.assertEqual(actual, expected)
 
     def test6(self): # line 34: true 92%
